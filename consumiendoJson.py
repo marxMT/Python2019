@@ -34,3 +34,12 @@ def convertirJson(data_python):
 #     reader = csv.reader(csvFile)
 #     for fila in reader:
 #         lis.append(fila)
+
+def generarElementosTabla(data_json):
+    """ Retorna tupla con nombre de columna y valores para agregar a la tabla"""
+    rows = []
+    header = list(data_json[0].keys())
+    for data in data_json:
+        rows.append(list(data_json.values()))
+
+    return(header, rows)
