@@ -6,7 +6,7 @@ h=[]
 elementosVentada = [
         [sg.Text('Carga y Transformacón de Archivos', size =(50,1), auto_size_text=False, justification='center')],
         [sg.InputText('Seleccione Archivo'), sg.FileBrowse()],
-        [sg.Table(values= v, headings=h)],
+        [sg.Table(values= v, headings=h, key='_table_')],
         [sg.ReadButton('Convertir')]
 ]
 window = sg.Window(" Entergable 2").Layout(elementosVentada)
@@ -14,6 +14,14 @@ window = sg.Window(" Entergable 2").Layout(elementosVentada)
 while True:
     evento, valores = window.Read()
     extension_archivo = valores[0][-4:]
+    if( extension_archivo == "json"):
+        data = consumiendoJson.leerJson(valores[0])
+        h, r = consumiendoJson.generarElementosTabla(data)
+        window.FindElement('_table_').Update(values = r, headings = h)
+
+
+
+    #llamar a metodo Render tabla
     if(evento == 'Convertir'):
         if(extension_archivo == ".csv"):
             print("Tiene q convertir a JSON")

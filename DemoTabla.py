@@ -9,8 +9,9 @@ for data  in l_python:
 
 print(l)
 
+tabla = sg.Table(values=l, headings=h)
 layout= [
-        [sg.Table(values=l, headings=h)]
+        [tabla]
 ]
 
 ventada = sg.Window("DemoTabla").Layout(layout)

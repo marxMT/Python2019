@@ -40,6 +40,18 @@ def generarElementosTabla(data_json):
     rows = []
     header = list(data_json[0].keys())
     for data in data_json:
-        rows.append(list(data_json.values()))
-
+        rows.append(list(data.values()))
     return(header, rows)
+
+# def generarElementosTablaCsv(lista):
+#     """ Retorna tupla """
+#
+#     header = lista[0]
+#     rows = lista[1:]
+#     return(header, rows)
+
+# l_python = [{'first_name': 'Sigrid', 'last_name': 'Mannock', 'age': 27, 'amount': 7.17}, {'first_name': 'Joe', 'last_name': 'Hinners', 'age': 31, 'amount': 9.19},
+# {'first_name': 'Theodoric', 'last_name': 'Rivers', 'age': 36, 'amount': 1.11}]
+#
+# r = generarElementosTabla(l_python)
+# print(r)
