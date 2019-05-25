@@ -14,10 +14,6 @@ window = sg.Window(" Entergable 2").Layout(elementosVentada)
 while True:
     evento, valores = window.Read()
     extension_archivo = valores[0][-4:]
-    if( extension_archivo == "json"):
-        data = consumiendoJson.leerJson(valores[0])
-        h, r = consumiendoJson.generarElementosTabla(data)
-        window.FindElement('_table_').Update(values = r, headings = h)
 
 
 
