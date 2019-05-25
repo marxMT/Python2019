@@ -41,7 +41,7 @@ def generarElementosTabla(data_json):
     header = list(data_json[0].keys())
     for data in data_json:
         rows.append(list(data.values()))
-    return(header, rows)
+    return(header, rows
 
 # def generarElementosTablaCsv(lista):
 #     """ Retorna tupla """
