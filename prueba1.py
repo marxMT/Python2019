@@ -8,6 +8,7 @@ elementosVentada = [
 ]
 window = sg.Window(" Entergable 2").Layout(elementosVentada)
 
+
 while True:
     evento, valores = window.Read()
     flag = False
