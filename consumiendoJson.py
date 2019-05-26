@@ -2,6 +2,7 @@ import json
 import csv
 
 
+
 def leerJson(archivo):
     """
     value: obj Json
@@ -10,6 +11,7 @@ def leerJson(archivo):
     with open(archivo) as f:
         data = json.load(f)
     return data
+
 
 def leerCsv(archivo):
     """
@@ -28,7 +30,6 @@ def convertirToCsv(data_python):
     """
     Toma obj Python y genera un archivo csv
     """
-
     columns = list(data_python[0].keys())
 
     with open('data.csv', 'w') as archivoCsv:
@@ -36,13 +37,13 @@ def convertirToCsv(data_python):
         arch_csv.writeheader()
         arch_csv.writerows(data_python)
 
+
 def convertirToJson(data_python):
     """
     Toma obj Python y genera un archivo Json
     """
     with open('data.json', 'w') as archivoJson:
         json.dump(data_python, archivoJson)
-
 
 
 def generarElementosTabla(data_json):
@@ -61,9 +62,8 @@ def generarElementosTabla(data_json):
 def generarElementosTablaCsv(lista):
     """
     Retorna tupla
-    return (header, rows=[[],[]])
+    return: (header, rows=[[],[]])
     """
-
     header = lista[0]
     rows = lista[1:]
     return(header, rows)
