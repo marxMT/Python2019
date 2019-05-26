@@ -1,6 +1,5 @@
 import json
 import csv
-import os
 
 
 def leerJson(archivo):
