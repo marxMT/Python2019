@@ -1,6 +1,6 @@
 import json
 import csv
-# import os
+
 
 def leerJson(archivo):
     """
@@ -40,7 +40,9 @@ def convertirToJson(data_python):
     """
     Toma obj Python y genera un archivo Json
     """
-    pass
+    with open('data.json', 'w') as archivoJson:
+        json.dump(data_python, archivoJson)
+
 
 
 def generarElementosTabla(data_json):
@@ -53,7 +55,8 @@ def generarElementosTabla(data_json):
     header = list(data_json[0].keys())
     for data in data_json:
         rows.append(list(data.values()))
-    return(header, rows
+    return(header, rows)
+
 
 def generarElementosTablaCsv(lista):
     """
