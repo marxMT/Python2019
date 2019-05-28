@@ -22,7 +22,7 @@ def leerCsv(archivo):
     """
     lista_csv = []
     try:
-        with open('people.csv', 'r') as csvFile:
+        with open(archivo, 'r') as csvFile:
             reader = csv.reader(csvFile)
             for fila in reader:
                 lista_csv.append(fila)
@@ -51,7 +51,7 @@ def convertirToJson(data_python):
     Toma obj Python y genera un archivo Json
     """
     try:
-        with open('data.json', 'w') as archivoJson:
+        with open('dataJsonToCsv.json', 'w') as archivoJson:
             json.dump(data_python, archivoJson)
     except OSError as err:
         print("OS error: {0}".format(err))
