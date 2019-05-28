@@ -11,6 +11,7 @@ window = sg.Window(" Entergable 2").Layout(elementosVentada)
 
 while True:
     evento, valores = window.Read()
+    print(evento)
     flag = False
     tupla_archivo = os.path.splitext(valores[0])
     extension_archivo = tupla_archivo[1]
@@ -22,7 +23,7 @@ while True:
 
         elif extension_archivo == ".csv":
             data = funcionesUtilizadas.leerCsv(valores[0])
-            column, row = funcionesUtilizadas.generarElementosTablaCsv(data)
+            column, row = funcionesUtilizadas.generarElementosTabla(data)
             flag = True
 
         else:
@@ -42,12 +43,14 @@ while True:
         if(extension_archivo == ".csv"):
             data = funcionesUtilizadas.leerCsv(valores[0])
             funcionesUtilizadas.convertirToJson(data)
-        elif(extension_archivo == "json"):
+            sg.Popup("Conversion exitosa")
+        elif(extension_archivo == ".json"):
             data = funcionesUtilizadas.leerJson(valores[0])
             funcionesUtilizadas.convertirToCsv(data)
+            sg.Popup("Conversion exitosa")
         else :
             sg.Popup("Ingrese un archivo tipo Json o Csv")
-        sg.Popup("Conversion exitosa")
+
     if evento is None:
         break
 

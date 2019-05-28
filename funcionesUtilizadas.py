@@ -23,7 +23,7 @@ def leerCsv(archivo):
     lista_csv = []
     try:
         with open(archivo, 'r') as csvFile:
-            reader = csv.reader(csvFile)
+            reader = csv.DictReader(csvFile)
             for fila in reader:
                 lista_csv.append(fila)
     except OSError as err:
@@ -57,30 +57,14 @@ def convertirToJson(data_python):
         print("OS error: {0}".format(err))
 
 
-def generarElementosTabla(data_json):
+def generarElementosTabla(data):
     """
     Retorna tupla con nombre de columna y
     valores para agregar a la tabla
     return: (cabezera, value)
     """
     rows = []
-    header = list(data_json[0].keys())
-    for data in data_json:
-        rows.append(list(data.values()))
+    header = list(data[0].keys())
+    for d in data:
+        rows.append(list(d.values()))
     return(header, rows)
-
-
-def generarElementosTablaCsv(lista):
-    """
-    Retorna tupla
-    return: (header, rows=[[],[]])
-    """
-    header = lista[0]
-    rows = lista[1:]
-    return(header, rows)
-
-# l_python = [{'first_name': 'Sigrid', 'last_name': 'Mannock', 'age': 27, 'amount': 7.17}, {'first_name': 'Joe', 'last_name': 'Hinners', 'age': 31, 'amount': 9.19},
-# {'first_name': 'Theodoric', 'last_name': 'Rivers', 'age': 36, 'amount': 1.11}]
-#
-# r = generarElementosTabla(l_python)
-# print(r)
