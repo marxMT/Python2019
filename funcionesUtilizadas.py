@@ -1,6 +1,8 @@
 import json
 import csv
-
+import os
+import string
+import random
 
 def leerJson(archivo):
     """
@@ -68,3 +70,17 @@ def generarElementosTabla(data):
     for d in data:
         rows.append(list(d.values()))
     return(header, rows)
+
+
+class Error(Exception):
+    """
+    Clase base para otras excepciones
+    """
+    pass
+
+
+class FileTooLargeError(Error):
+    """
+    Se lanza cuando el file.size es mayor a 1024 bytes
+    """
+    pass
