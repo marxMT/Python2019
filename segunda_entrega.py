@@ -23,7 +23,7 @@ while True:
     if evento == 'Ver Tabla':
         if(extension_archivo == ".json"):
             try:
-                if valores[0] > 1024:
+                if os.path.getsize(valores[0]) > 1024:
                     raise FileTooLargeError
                 data = funcionesUtilizadas.leerJson(valores[0])
                 column, row = funcionesUtilizadas.generarElementosTabla(data)
@@ -33,7 +33,7 @@ while True:
 
         elif extension_archivo == ".csv":
             try:
-                if valores[0] > 1024:
+                if os.path.getsize(valores[0]) > 1024:
                     raise FileTooLargeError
                 data = funcionesUtilizadas.leerCsv(valores[0])
                 column, row = funcionesUtilizadas.generarElementosTabla(data)
